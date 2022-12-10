@@ -1,0 +1,29 @@
+version: "3.9"
+
+volumes:
+  apps-share-data:
+    driver: local
+
+services:
+  go_app1:
+    container_name: go_app_share_to
+    build:
+      context: .
+      dockerfile: "./docker/golang/Dockerfile"
+    volumes:
+      - "./go_apps/go_app1/:/go/src/app"
+      - "apps-share-data:/go/src/app/shareTo"
+    working_dir: /go/src/app
+    tty: true
+    stdin_open: true
+  go_app2:
+    container_name: go_app_share_from
+    build:
+      context: .
+      dockerfile: "./docker/golang/Dockerfile"
+    volumes:
+      - "./go_apps/go_app2/:/go/src/app"
+      - "apps-share-data:/go/src/app/shareFrom"
+    working_dir: /go/src/app
+    tty: true
+    stdin_open: true

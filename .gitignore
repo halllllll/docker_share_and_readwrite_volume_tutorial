@@ -1,0 +1,3 @@
+.vscode
+go_apps/*/save
+.DS_Store
