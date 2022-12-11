@@ -7,3 +7,7 @@
 ファイルの変更検知は[fsnotify](https://github.com/fsnotify/fsnotify)を使用している。
 
 同じvolumeは`docker-compose.yml`では`volumes`で指定したもの。これを、それぞれのコンテナが起動するときにバインドしている。
+
+
+# Note
+`go_app2`が起動するよりも前のファイルは移動・コピーの対象にはならないので、その場合は手動で直接フォルダにいれちゃえばたぶん動く
